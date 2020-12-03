@@ -1,0 +1,10 @@
+{
+  "name": "is-introspection-query",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "optionalDependencies": {
+    "graphql": ">= 0.12.0"
+  }
+}
