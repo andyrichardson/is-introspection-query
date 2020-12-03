@@ -11,6 +11,11 @@
   "scripts": {
     "build": "microbundle"
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "optionalDependencies": {
     "graphql": ">= 0.12.0"
   },
