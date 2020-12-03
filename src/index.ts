@@ -1,7 +1,9 @@
-import { parse, Document } from 'graphql';
+import { DocumentNode, OperationDefinitionNode } from "graphql";
 
-export const isIntrospectionQueryDoc = (query: Document) => {
-  const opDefs = query.definitions.filter(d => d.kind == "OperationDefinition") as OperationDefinitionNode[];
+const isIntrospectionQuery = (query: DocumentNode) => {
+  const opDefs = query.definitions.filter(
+    (d) => d.kind == "OperationDefinition"
+  ) as OperationDefinitionNode[];
 
   // Must only have one definition
   if (opDefs.length > 1) {
@@ -12,7 +14,7 @@ export const isIntrospectionQueryDoc = (query: Document) => {
 
   // Must only have one selection
   if (selections.length > 1) {
-    return false
+    return false;
   }
 
   const selection = selections[0];
@@ -28,7 +30,5 @@ export const isIntrospectionQueryDoc = (query: Document) => {
 
   return true;
 };
-
-export const isIntrospectionQuery = (query: string | Document) => isIntrospectionQueryDoc(typeof query === 'string' ? parse(query) : query);
 
 export default isIntrospectionQuery;
